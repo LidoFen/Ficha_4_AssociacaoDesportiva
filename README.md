@@ -6,22 +6,22 @@ https://lidofen.github.io/Ficha_4_AssociacaoDesportiva
 
 
  
-"É pretendido um sistema web para a gestão de uma federação desportiva, este sistema terá de permitir registar clubes e jogadores. 
+"A web system for the management of a sports federation is desired, this system will have to allow to register clubs and players. 
 
-Os clubes tem um nome, uma localidade, um email de contato, um ano de fundação, um contato de telefone e um logotipo, é pretendido que se possam registar vários clubes, os quais podem ser removidos e editados no sistema após a sua adição ao sistema. 
+The clubs have a name, a locality, a contact email, a year of foundation, a telephone contact and a logo, it is intended that several clubs can be registered, which can be removed and edited in the system after their addition to the system. 
 
-Os jogadores têm um nome, um email, idade, morada, telefone, clube, nº federativo que o identifica de forma inequívoca e uma foto do atleta. 
+Players have a name, an email, age, address, phone number, club, federation number that unambiguously identifies the player and a photo of the athlete. 
 
-Os jogadores tal como os clubes terão de ter as funcionalidades de remoção, edição e criação. 
+Players as well as clubs will have to have the functionalities of removal, editing and creation. 
 
-As fotos dos jogadores de um determinado clube deverão estar armazenadas no mesmo diretório. 
+The photos of the players of a given club must be stored in the same directory. 
 
-A forma de leitura e a forma como são mostrados os dados ao utilizador do sistema é de critério livre, sendo necessário apenas que numa fase inicial seja visível nos jogadores o numero federativo o nome e a idade. 
+The way of reading and the way the data is shown to the user of the system is of free discretion, being necessary only that in an initial phase the federative number, the name and the age are visible in the players. 
 
-Nos clubes tem de ser visível o nome, a localidade e o ano de fundação. 
+In the clubs, the name, the locality and the year of foundation must be visible. 
 
-É necessário a criação de um ficheiro onde fique registado o caminho de todas as imagens que passaram pelo processo de upload. 
+It is necessary to create a file where the path of all images that have gone through the upload process is recorded. 
 
-A ambas as áreas (jogadores e clubes) terá de ser acedida a toda a informação presente nas tabelas, por isso terá de ser adicionada uma forma para efetuar essa consulta visual dos dados.
+Both areas (players and clubs) will have to be accessed all the information present in the tables, so a way to make this visual query of the data will have to be added.
 
-O aspeto gráfico fica ao seu critério, podendo utilizar um tema gratuito à sua escolha ou desenvolver um aspeto gráfico a seu gosto. O índex tem de ter como ligações a página de clubes e pagina de jogadores."
+The graphical appearance is at your discretion, you can use a free theme of your choice or develop a graphical appearance to your liking. The index must have as links the page "
