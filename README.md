@@ -2,8 +2,7 @@
 
 Database is only hosted locally, so will always return an error onload
 
-https://lidofen.github.io/Ficha_4_AssociacaoDesportiva
-
+<a href="https://lidofen.github.io/Ficha_4_AssociacaoDesportiva" target="_blank">Check it out!</a>
 
  
 "A web system for the management of a sports federation is desired, this system will have to allow to register clubs and players. 
