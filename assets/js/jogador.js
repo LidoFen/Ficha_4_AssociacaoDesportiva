@@ -88,10 +88,6 @@ function getListaJogadores() {
         .done(function (msg) {
             $('#listaJogadores').html(msg)
             $('#tabelaJogadores').DataTable({
-                aoColumnDefs: [
-                    { "aTargets": [0], "bSortable": true },
-                    { "aTargets": [2], "asSorting": ["asc"], "bSortable": true },
-                ],
                 "language": {
                     "url": "https://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Portuguese.json"
                 }
