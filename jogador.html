@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ficha_4_5417</title>
+    <script src="assets/js/lib/jquery.js"></script>
+    <script src="assets/js/lib/bootstrap.js"></script>
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <script src="assets/js/lib/datatables.js"></script>
+    <script src="assets/js/lib/select2.js"></script>
+    <script src="assets/js/lib/sweatalert.js"></script>
+    <script src="assets/js/jogador.js"></script>
+    <script src="assets/js/darkmode.js"></script>
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+    <link rel="stylesheet" href="assets/css/datatables.css">
+    <link rel="stylesheet" href="assets/css/select2.css">
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Ficha_4</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="clube.html">Clubes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="jogador.html">Jogadores</a>
+                    </li>
+                </ul>
+                <button type="button" class="btn" onclick="esquema()">
+                    <box-icon id="botao" name='moon' ></box-icon>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <div class="card">
+            <div class="card-header">
+                Registo de Jogadores
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Faça aqui o seu registo</h5>
+                <form class="row g-3">
+                    <div class="col-md-2">
+                        <label for="nFederativo" class="form-label">Nº Federativo</label>
+                        <input type="number" class="form-control" id="nFederativo">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="nome" class="form-label">Nome</label>
+                        <input type="text" class="form-control" id="nome">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="email" class="form-label">E-mail</label>
+                        <input type="email" class="form-control" id="email">
+                    </div>
+                    <div class="col-md-2">
+                        <label for="idade" class="form-label">Idade</label>
+                        <input type="number" class="form-control" id="idade">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="morada" class="form-label">Morada</label>
+                        <input type="text" class="form-control" id="morada">
+                    </div>
+                    <div class="col-md-2">
+                        <label for="telefone" class="form-label">Telefone</label>
+                        <input type="tel" class="form-control" id="telefone">
+                    </div>
+                    <div class="col-md-2">
+                        <label for="selectClubes" class="form-label">Clube</label>
+                        <select id="selectClubes" class="form-select">
+
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="foto" class="form-label">Foto</label>
+                        <input type="file" class="form-control" id="foto">
+                    </div>
+                    <div class="col-12 text-center">
+                        <button type="button" class="btn btn-primary" onclick="registaJogador()">Registar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-5">
+        <div class="card">
+            <div class="card-header text-center">
+                <h3>Listagem de Jogadores</h3>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title text-center">Consulte aqui todos os jogadores registados</h5>
+                <table class="table table-striped" id="tabelaJogadores">
+                    <thead>
+                        <tr>
+                            <th scope="col">Nº Fed.</th>
+                            <th scope="col">Nome</th>
+                            <th scope="col">Idade</th>
+                            <th scope="col">Editar</th>
+                            <th scope="col">Remover</th>
+                            <th scope="col">Info</th>
+                        </tr>
+                    </thead>
+                    <tbody id="listaJogadores">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalJogadorEdit" tabindex="-1" aria-labelledby="modalJogadorEditLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="modalJogadorEditLabel">Edição de Jogador</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="card">
+                            <h5 class="card-header">Edite aqui as informações do jogador</h5>
+                            <div class="card-body">
+                                <form class="row g-3">
+                                    <div class="col-md-6">
+                                        <label for="nFederativoEdit" class="form-label">Nª Federativo</label>
+                                        <input type="text" class="form-control" id="nFederativoEdit">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="nomeEdit" class="form-label">Nome</label>
+                                        <input type="text" class="form-control" id="nomeEdit">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="emailEdit" class="form-label">Email</label>
+                                        <input type="email" class="form-control" id="emailEdit">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="idadeEdit" class="form-label">Idade</label>
+                                        <input type="number" class="form-control" id="idadeEdit">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="moradaEdit" class="form-label">Morada</label>
+                                        <input type="text" class="form-control" id="moradaEdit">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="telefoneEdit" class="form-label">Telefone</label>
+                                        <input type="tel" class="form-control" id="telefoneEdit">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="selectClubesEdit" class="form-label">Clube</label>
+                                        <select id="selectClubesEdit" class="form-select">
+
+                                        </select>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <label for="fotoEdit" class="form-label">Logotipo</label>
+                                        <input type="file" class="form-control" id="fotoEdit">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn btn-success" id="btnGuardar1">Guardar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalJogadorInfo" tabindex="-1" aria-labelledby="modalJogadorInfoLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="modalJogadorInfoLabel">Informação do Jogador</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="card">
+                            <h5 class="card-header">Consulte aqui todas as informações do Jogador</h5>
+                            <div class="card-body">
+
+                                <table class="table table-striped" id="tabelaJogadoresInfo">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Nº Federativo</th>
+                                            <th scope="col">Nome</th>
+                                            <th scope="col">Email</th>
+                                            <th scope="col">Idade</th>
+                                            <th scope="col">Morada</th>
+                                            <th scope="col">Telefone</th>
+                                            <th scope="col">Clube</th>
+                                            <th scope="col">Foto</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="listaJogadoresInfo">
+                                        
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+          <p class="col-md-4 mb-0 text-body-secondary">© Pedro Delfino - 2023</p>
+      
+          <a href="index.html" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+            Ficha_4_5417
+          </a>
+      
+          <ul class="nav col-md-4 justify-content-end">
+            <li class="nav-item"><a href="index.html" class="nav-link px-2 text-body-secondary">Home</a></li>
+            <li class="nav-item"><a href="clube.html" class="nav-link px-2 text-body-secondary">Clubes</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Jogadores</a></li>
+          </ul>
+        </footer>
+      </div>
+</body>
+
+</html>
