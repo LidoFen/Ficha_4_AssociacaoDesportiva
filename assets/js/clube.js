@@ -60,10 +60,6 @@ function getListaClubes() {
         .done(function (msg) {
             $('#listaClubes').html(msg)
             $('#tabelaClubes').DataTable({
-                aoColumnDefs: [
-                    { "aTargets": [0], "bSortable": true },
-                    { "aTargets": [2], "asSorting": ["asc"], "bSortable": true },
-                ],
                 "language": {
                     "url": "https://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Portuguese.json"
                 }
