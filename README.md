@@ -1,5 +1,7 @@
 # Ficha_4_AssociacaoDesportiva
 
+Database is only hosted locally, so will always return an error onload
+
 https://lidofen.github.io/Ficha_4_AssociacaoDesportiva
 
 
