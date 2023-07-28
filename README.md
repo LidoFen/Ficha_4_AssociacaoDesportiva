@@ -19,8 +19,6 @@ The way of reading and the way the data is shown to the user of the system is of
 
 In the clubs, the name, the locality and the year of foundation must be visible. 
 
-It is necessary to create a file where the path of all images that have gone through the upload process is recorded. 
-
 Both areas (players and clubs) will have to be accessed all the information present in the tables, so a way to make this visual query of the data will have to be added.
 
 The graphical appearance is at your discretion, you can use a free theme of your choice or develop a graphical appearance to your liking. The index must have as links the page "
